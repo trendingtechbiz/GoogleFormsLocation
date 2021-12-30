@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    
+    <script>
+      
+      var formURL = "https://docs.google.com/forms/d/e/1FAIpQLSf_VJOkeMASBXGY0SIYqs-OQiJrRY8hazXCKLRIWl2AC_N6Ww/viewform?usp=pp_url&entry.612911609=";
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          showPosition(null);
+        }
+      }
+      
+      function showPosition(position) {
+        var loc = position ? position.coords.latitude + "," + position.coords.longitude : "";
+        window.location.href = formURL + loc;
+      }
+
+      getLocation();
+      
+    </script>
+
+  </body>
+</html>
