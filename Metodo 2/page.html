@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    
+    <script>
+      
+      function getLocation() {
+        console.log("getLocation");
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          showPosition(null);
+        }
+      }
+      
+      function showPosition(position) {
+        console.log("showPosition "+position);
+        var loc = position ? position.coords.latitude + "," + position.coords.longitude : "";
+        google.script.run.getLoc(loc);
+      }
+
+      getLocation();
+      
+    </script>
+    <h1>
+      Tu formulario ha sido completado. <br />
+      ¡Gracias!
+    </h1>
+  </body>
+</html>
